@@ -30,7 +30,29 @@ public class GetTooltipText {
             System.out.println("Test failed");
         }
 
+//        Scenario 2: JQuery Plugin:
+//        ==========================
+        System.out.println();
+
+        String expectedToolTip = "What's new in 3.2";
+        driver.get("http://demo.guru99.com/test/tooltip.html");
+
+        WebElement download = driver.findElement(By.cssSelector("#download_now"));
+
         Actions builder = new Actions(driver);
-        builder.moveToElement(driver.findElement(By.cssSelector(".rss")));
+        builder.clickAndHold().moveToElement(download);
+        builder.moveToElement(download).build().perform();
+
+        // Get actual link text from tooltip
+        WebElement toolTipElement = driver.findElement(By.xpath("//*[@class='tooltip']/a"));
+        String actualToolTip = toolTipElement.getText();
+
+        // Compare expected tooltip and received!
+        if (expectedToolTip.equals(actualToolTip)) {
+            System.out.println("Tooltip #2 Test passed.");
+        } else {
+            System.out.println("Tooltip #2 Test failed");
+        }
+
     }
 }
