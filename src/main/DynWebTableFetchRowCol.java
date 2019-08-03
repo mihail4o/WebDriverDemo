@@ -10,7 +10,13 @@ import java.util.concurrent.TimeUnit;
 
 public class DynWebTableFetchRowCol {
     public static void main(String[] args) throws ParseException {
-        System.setProperty("webdriver.gecko.driver", "C:\\Users\\mihovm.MASCORP\\Downloads\\selenium-java-3.141.59\\geckodriver.exe");
+        // Check the OS type. Set the correct webdriver property:
+        if(System.getProperty("os.name").equals("Mac OS X")) {
+            System.setProperty("webdriver.gecko.driver", "/Users/balivo/Downloads/selenium/course/geckodriver");
+        } else {
+            System.setProperty("webdriver.gecko.driver", "C:\\Users\\mihovm.MASCORP\\Downloads\\selenium-java-3.141.59\\geckodriver.exe");
+        }
+
         WebDriver driver = new FirefoxDriver();
         driver.get("http://demo.guru99.com/test/web-table-element.php");
         driver.manage().window().maximize();

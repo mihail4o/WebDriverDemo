@@ -7,7 +7,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class Demo {
     public static void main(String[] args) {
 
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\mihovm.MASCORP\\Downloads\\selenium-java-3.141.59\\chromedriver.exe");
+        // Check the OS type. Set the correct webdriver property:
+        if(System.getProperty("os.name").equals("Mac OS X")) {
+            System.setProperty("webdriver.chrome.driver", "/Users/balivo/Downloads/selenium/course/chromedriver");
+        } else {
+            System.setProperty("webdriver.chrome.driver", "C:\\Users\\mihovm.MASCORP\\Downloads\\selenium-java-3.141.59\\chromedriver.exe");
+        }
 
         WebDriver driver = new ChromeDriver();
 

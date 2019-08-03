@@ -10,10 +10,20 @@ public class Main {
 
     public static void main(String[] args) {
 
-        // Set WebDriver property for Firefox browser
-        System.setProperty("webdriver.gecko.driver", "C:\\Users\\mihovm.MASCORP\\Downloads\\selenium-java-3.141.59\\geckodriver.exe");
+        // Check the OS type. Set the correct webdriver property:
+        if(System.getProperty("os.name").equals("Mac OS X")) {
+            System.setProperty("webdriver.gecko.driver", "/Users/balivo/Downloads/selenium/course/geckodriver");
+        } else {
+            System.setProperty("webdriver.gecko.driver", "C:\\Users\\mihovm.MASCORP\\Downloads\\selenium-java-3.141.59\\geckodriver.exe");
+        }
 
         // Set WebDriver property for Chrome browser
+        // Check the OS type. Set the correct webdriver property:
+        if(System.getProperty("os.name").equals("Mac OS X")) {
+            System.setProperty("webdriver.chrome.driver", "/Users/balivo/Downloads/selenium/course/chromedriver");
+        } else {
+            System.setProperty("webdriver.chrome.driver", "C:\\Users\\mihovm.MASCORP\\Downloads\\selenium-java-3.141.59\\chromedriver.exe");
+        }
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\mihovm.MASCORP\\Downloads\\selenium-java-3.141.59\\chromedriver.exe");
 
         // Set WebDriver property for MS Edge browser

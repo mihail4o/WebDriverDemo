@@ -13,7 +13,13 @@ public class IeTestForDesiredCapabilities {
         capabilities.setCapability(InternetExplorerDriver
                 .INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);
 
-        System.setProperty("webdriver.ie.driver", "C:\\Users\\mihovm.MASCORP\\Downloads\\selenium-java-3.141.59\\IEDriverServer.exe");
+        // Check the OS type. Set the correct webdriver property:
+        if(System.getProperty("os.name").equals("Mac OS X")) {
+            System.setProperty("webdriver.gecko.driver", "/Users/balivo/Downloads/selenium/course/geckodriver");
+        } else {
+            System.setProperty("webdriver.gecko.driver", "C:\\Users\\mihovm.MASCORP\\Downloads\\selenium-java-3.141.59\\geckodriver.exe");
+        }
+
 
         //it is used to initialize the IE driver
         WebDriver driver = new InternetExplorerDriver(capabilities);

@@ -12,7 +12,13 @@ import org.testng.annotations.Test;
 public class TestNG {
 
 //    System.setProperty("webdriver.chrome.driver", "C:\\Users\\mihovm.MASCORP\\Downloads\\selenium-java-3.141.59\\chromedriver.exe");
-
+// Check the OS type. Set the correct webdriver property:
+//        if(System.getProperty("os.name").equals("Mac OS X")) {
+//        System.setProperty("webdriver.gecko.driver", "/Users/balivo/Downloads/selenium/course/geckodriver");
+//    } else {
+//        System.setProperty("webdriver.gecko.driver", "C:\\Users\\mihovm.MASCORP\\Downloads\\selenium-java-3.141.59\\geckodriver.exe");
+//    }
+//
     public String baseUrl = "http://newtours.demoaut.com";
     public WebDriver driver;
 

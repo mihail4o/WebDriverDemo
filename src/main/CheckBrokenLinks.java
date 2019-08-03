@@ -23,7 +23,13 @@ public class CheckBrokenLinks {
         HttpURLConnection huc = null;
         int respCode = 200;
 
-        System.setProperty("webdriver.gecko.driver", "C:\\Users\\mihovm.MASCORP\\Downloads\\selenium-java-3.141.59\\geckodriver.exe");
+        // Check the OS type. Set the correct webdriver property:
+        if(System.getProperty("os.name").equals("Mac OS X")) {
+            System.setProperty("webdriver.gecko.driver", "/Users/balivo/Downloads/selenium/course/geckodriver");
+        } else {
+            System.setProperty("webdriver.gecko.driver", "C:\\Users\\mihovm.MASCORP\\Downloads\\selenium-java-3.141.59\\geckodriver.exe");
+        }
+
         WebDriver driver = new FirefoxDriver();
         driver.get(homePage);
         driver.manage().window().maximize();
